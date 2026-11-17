@@ -1,0 +1,47 @@
+/* Shared presentation layer for all five authenticated workspaces. */
+.shell { background: #f3f7fb; }
+.shell .content { min-width: 0; background: radial-gradient(ellipse at 100% 0%, #e8f3fa 0, transparent 55%); }
+.shell .navbar { background: #ffffffed; backdrop-filter: blur(16px); box-shadow: 0 4px 24px #203e5c08; }
+.shell .sidebar { background: linear-gradient(170deg, #fff, #f5f9fd); overflow-y: auto; scrollbar-width: thin; }
+.shell .sidebar::before { display: none; }
+.shell .sidebar__portal { display: block; color: #376580; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 4px 12px 14px; }
+.shell .sidebar__link { border: 1px solid transparent; border-radius: 10px; transition: background .2s ease, border-color .2s ease, color .2s ease; }
+.shell .sidebar__link.is-active { background: linear-gradient(110deg, #deedfa, #edf6fc); border-color: #ccdfef; box-shadow: 0 3px 10px #1c609b08; }
+.shell .sidebar__icon { transition: transform .2s ease; }
+.shell .sidebar__link:hover .sidebar__icon { transform: translateX(2px); }
+.workspace-nav-search { display: grid; gap: 6px; margin: 0 6px 14px; }
+.workspace-nav-search > span { font-size: 11px; font-weight: 600; color: #5a7084; }
+.workspace-nav-search input { width: 100%; min-width: 0; padding: 10px 11px; border: 1px solid #d9e4ef; border-radius: 9px; background: #fff; font: inherit; font-size: 12px; color: #203e5c; }
+.workspace-nav-empty { padding: 12px; font-size: 12px; color: #5a7084; }
+.shell .page__head { padding: 26px 28px; border: 1px solid #dce8f2; border-radius: 18px; background: linear-gradient(115deg, #fff 30%, #edf6fc); box-shadow: 0 6px 24px #203e5c05; }
+.shell .page__head h2 { letter-spacing: -.035em; }
+.shell .page__head .eyebrow { color: #39758b; letter-spacing: .12em; }
+.shell .card { border-radius: 15px; border-color: #dfe8f1; box-shadow: 0 5px 20px #203e5c06; transition: box-shadow .22s ease, border-color .22s ease; }
+.shell .card__head { padding-bottom: 14px; border-bottom: 1px solid #edf2f7; }
+.shell .stat { border-radius: 14px; background: linear-gradient(130deg, #fff 55%, #f3f8fc); box-shadow: 0 5px 18px #203e5c06; transition: box-shadow .22s ease, border-color .22s ease; }
+.shell .stat strong { font-size: clamp(24px, 2.2vw, 34px); letter-spacing: -.04em; }
+.shell .stat__icon { border-radius: 12px; box-shadow: 0 3px 8px #203e5c08; }
+.shell .stat--button:hover { box-shadow: 0 8px 24px #1b5b8e18; }
+.shell .table-wrap { border-radius: 12px; border-color: #dfe8f1; }
+.shell .table thead th { background: #f1f6fb; color: #49637b; }
+.shell .table tbody tr { transition: background-color .16s ease; }
+.shell .table tbody tr:hover { background-color: #f3f8fd; }
+.shell .tabs { padding: 5px; border-radius: 11px; background: #eaf1f7; gap: 4px; }
+.shell .tabs button { border-radius: 8px; transition: background .2s ease, color .2s ease, box-shadow .2s ease; }
+.shell .tabs button[aria-selected=true] { box-shadow: 0 2px 7px #203e5c12; }
+.shell .empty-box { border-radius: 13px; background: linear-gradient(145deg, #f9fcff, #f1f7fb); }
+.shell .btn { transition: background-color .2s ease, border-color .2s ease, box-shadow .2s ease; }
+.shell .btn--primary { box-shadow: 0 4px 12px #0f62b026; }
+.shell .btn--primary:hover:not(:disabled) { box-shadow: 0 6px 18px #0f62b03b; }
+.shell :is(input, select, textarea):focus-visible { outline: 2px solid #408bc4; outline-offset: 2px; }
+.shell :is(a, button):focus-visible { outline: 2px solid #408bc4; outline-offset: 3px; }
+/* Cards fade without transforms so nested fixed-position dialogs stay anchored. */
+.shell .workspace-enter { animation: workspace-surface .65s ease var(--entrance-delay, 0ms) backwards; }
+.shell .page__head.workspace-enter > div:first-child { animation: workspace-heading .7s ease both; }
+@keyframes workspace-surface { from { opacity: .45; } to { opacity: 1; } }
+@keyframes workspace-heading { from { opacity: .5; translate: -14px 0; } to { opacity: 1; translate: 0 0; } }
+@media (hover: hover) { .shell .card:hover { border-color: #c9ddeb; box-shadow: 0 8px 26px #203e5c0c; } }
+@media (max-width: 760px) { .shell .page__head { padding: 20px; border-radius: 14px; } .shell .stat strong { font-size: 26px; } }
+@media (max-width: 480px) { .shell .navbar__right > .badge--role { display: none; } .shell .navbar__right { gap: 8px; } }
+@media (prefers-reduced-motion: reduce) { .shell *, .shell *::before, .shell *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+@media print { .shell .workspace-enter { animation: none; opacity: 1; } .workspace-nav-search { display: none; } }

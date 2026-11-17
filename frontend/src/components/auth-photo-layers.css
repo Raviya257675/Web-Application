@@ -1,0 +1,19 @@
+.auth-photo-panel.auth__aside > .auth-photo-images {
+  position: absolute !important;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0 !important;
+}
+.auth-photo-panel.auth__aside > .auth-photo-shade {
+  position: absolute !important;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1 !important;
+  background: linear-gradient(180deg,rgba(5,27,40,.3),rgba(5,27,40,.05) 32%,rgba(5,27,40,.72) 72%,rgba(5,27,40,.9));
+}
+.auth-photo-panel.auth__aside > .auth-photo-brand,
+.auth-photo-panel.auth__aside > .auth-photo-story,
+.auth-photo-panel.auth__aside > .auth-photo-bottom { position: relative; z-index: 2 !important; }
+.auth-photo-panel.auth__aside .polish-auth-decoration { display: none !important; }

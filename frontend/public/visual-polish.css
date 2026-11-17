@@ -1,0 +1,24 @@
+/* Runtime-safe frontend visual upgrades for existing compiled SPA. */
+.lp-panel .polish-healthcare-art { display:block; width:100%; max-height:218px; object-fit:cover; object-position:center; border-radius:18px; border:1px solid rgba(186,230,253,.85); background:#eaf7ff; box-shadow:0 10px 28px rgba(15,98,176,.10); animation:polish-rise .8s cubic-bezier(.2,.75,.3,1) both; }
+.auth__aside { position:relative; }
+.auth__aside .polish-auth-decoration { display:block; height:145px; background: url('/visuals/healthcare-team.svg') center / cover no-repeat; border-radius:18px; border:1px solid rgba(186,230,253,.35); box-shadow:0 14px 28px rgba(1,28,53,.22); animation:polish-rise .7s ease-out both; }
+.lp-panel { overflow:hidden; }
+.lp-card, .lp-role, .lp-step, .stat, .card, .auth__card { will-change:auto; }
+.lp-grid .lp-card:nth-child(2n) { transition-delay:45ms; }
+.lp-grid .lp-card:nth-child(3n) { transition-delay:85ms; }
+.lp-hero h1 { background:linear-gradient(110deg, #0f172a 17%, #0f62b0 90%);-webkit-background-clip:text;background-clip:text;color:transparent; }
+.lp-hero__copy { animation:polish-rise .68s cubic-bezier(.2,.75,.3,1) both; }
+.lp-panel { animation:polish-rise .7s .07s cubic-bezier(.2,.75,.3,1) both; }
+.lp-feature-icon, .lp-card__icon { transition: transform .25s ease, box-shadow .25s ease; }
+.lp-card:hover .lp-feature-icon, .lp-card:hover .lp-card__icon { transform:rotate(-6deg) scale(1.1); box-shadow:0 9px 18px rgba(15,98,176,.14); }
+.lp-panel__cta, .lp-nav__links a { transition: color .2s ease, opacity .2s ease; }
+.field input, .field select, .field textarea { transition:border-color .15s ease, box-shadow .2s ease, background-color .15s ease; }
+.field input:focus, .field select:focus, .field textarea:focus { box-shadow:0 0 0 4px rgba(14,165,233,.12); }
+.sidebar__link.is-active::after {content:'';position:absolute;right:8px;top:calc(50% - 3px);width:6px;height:6px;border-radius:50%;background:#0284c7;}
+.polish-reveal { opacity:0; transform:translateY(14px); transition:opacity .5s ease,transform .5s ease; }
+.polish-reveal.polish-reveal--shown { opacity:1; transform:none; }
+.btn .polish-ripple {position:absolute;inset:auto;border-radius:50%;pointer-events:none;background:rgba(125,211,252,.28);transform:translate(-50%,-50%) scale(0);animation:polish-ripple .65s ease-out forwards;}
+@keyframes polish-ripple {to {transform:translate(-50%,-50%) scale(10);opacity:0;}}
+@keyframes polish-rise {from {opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@media (max-width:760px) { .lp-panel .polish-healthcare-art{max-height:170px} .auth__aside .polish-auth-decoration{display:none} }
+@media (prefers-reduced-motion:reduce){ .polish-reveal,.polish-reveal.polish-reveal--shown,.lp-panel,.lp-hero__copy,.btn .polish-ripple,.auth__aside .polish-auth-decoration,.lp-panel .polish-healthcare-art{opacity:1!important;animation:none!important;transition:none!important;transform:none!important;} }
