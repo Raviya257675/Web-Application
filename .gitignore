@@ -1,0 +1,39 @@
+# Build output
+target/
+dist/
+node_modules/
+hospital-management-system.jar
+hospital-management-system-*.jar
+backups/
+.playwright-mcp/
+test-results/
+dependency-audit.json
+
+# Local database and logs
+data/
+*.log
+*.log.*
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.*
+!.env.example
+backend/.env
+*.err
+*.mv.db
+*.trace.db
+*.lock.db
+*.gguf
+.tools/
+/backend/src/main/resources/static/
+/gateway/data/
+*.jar
