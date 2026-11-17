@@ -1,0 +1,50 @@
+.medical-welcome{display:grid;grid-template-columns:1fr 1fr;background:#f5f5ed;color:#153f49;min-height:610px}.medical-welcome>div:first-child{padding:85px 12% 40px}.medical-welcome>div>span{font-size:11px;letter-spacing:3px;font-weight:700;color:#27766b}.medical-welcome h1{font:clamp(44px,4.6vw,74px)/1.08 Georgia,serif;letter-spacing:-2px;margin:25px 0;min-height:165px}.medical-welcome p{font-size:17px;line-height:1.8;color:#567079;margin-bottom:30px;min-height:65px}.medical-photos{position:relative;overflow:hidden;min-height:500px}.medical-photos img{position:absolute;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s}.medical-photos img.is-visible{opacity:1}.medical-caption{position:absolute;bottom:30px;left:25px;right:25px;background:#fffef0ed;border-radius:5px;padding:22px;color:#174d52;font-size:15px}.medical-controls{display:flex;gap:15px;margin-top:45px}.medical-controls button{border:0;border-bottom:2px solid transparent;background:transparent;padding:9px;cursor:pointer;color:#174d52}.medical-controls button[aria-pressed=true]{border-color:#174d52}.medical-ticker{overflow:hidden;background:#dceee7;padding:22px 0;color:#175b55;letter-spacing:2px;font-size:13px;white-space:nowrap}.medical-ticker>div{display:flex;width:max-content;animation:medical-scroll 40s linear infinite}.medical-ticker:hover>div{animation-play-state:paused}@keyframes medical-scroll{to{transform:translateX(-50%)}}.hospital-purpose{padding:80px max(6%,24px);display:grid;grid-template-columns:1fr 1fr;gap:10%;background:#edf3ee;color:#183f48}.hospital-purpose h2{font:48px/1.15 Georgia,serif;margin:20px 0}.hospital-purpose h3{margin-top:28px}.hospital-purpose p{line-height:1.9;color:#526c70}.hospital-purpose>div>span{font-size:11px;letter-spacing:3px}.lp-footer a{color:inherit}.lp-footer h3{margin-bottom:20px}.lp-footer p{font-size:13px;line-height:1.9;max-width:320px}@media(max-width:700px){.medical-welcome{grid-template-columns:1fr}.medical-welcome>div:first-child{padding:45px 6%}.medical-welcome h1{min-height:0;font-size:52px}.medical-photos{min-height:390px}.hospital-purpose{grid-template-columns:1fr;gap:25px}.hospital-purpose h2{font-size:38px}}@media(prefers-reduced-motion:reduce){.medical-ticker>div{animation:none}.medical-photos img{transition:none}}
+
+.hospital-contact{color:#d6e3eb!important}.hospital-contact h3{color:#fff!important;font-size:19px}.contact-grid{display:grid;grid-template-columns:1fr 1.2fr 280px;gap:65px;max-width:1200px;margin:auto}.hospital-contact p{color:#c3d5df}.hospital-contact small{display:block;color:#a2b9c9;font-size:11px;line-height:1.7;margin-top:15px}.contact-line{display:flex;align-items:center;gap:12px;margin:18px 0;overflow-wrap:anywhere}.contact-line span{font-size:22px;color:#9ed8ca}.contact-social{display:flex;flex-direction:column;gap:12px;margin-top:25px}.contact-social a{display:flex;gap:12px;align-items:center;font-size:13px}.contact-social svg{color:#a5d8cd}.contact-map{display:block;position:relative;width:260px;height:260px;border:1px solid #6a879c;border-radius:12px;overflow:hidden;background:#e5eee5}.contact-map iframe{width:100%;height:100%;border:0;pointer-events:none}.contact-map>span{position:absolute;bottom:0;left:0;right:0;background:#fff;color:#163e4c;padding:14px;font-size:12px;display:flex;justify-content:space-between}.contact-map:hover{outline:2px solid #a5d8cd}.hospital-contact a:focus-visible{outline:2px solid #a5d8cd;outline-offset:4px}@media(max-width:900px){.contact-grid{grid-template-columns:1fr 1fr;gap:35px}}@media(max-width:600px){.contact-grid{grid-template-columns:1fr}.contact-map{width:min(100%,280px);height:260px}}
+
+/* Full-width photographic hero and gentle scroll entrances. */
+.medical-welcome{position:relative;isolation:isolate;display:flex;align-items:center;min-height:680px;overflow:hidden;background:#102e3d;color:#fff}
+.medical-welcome>.medical-hero-copy:first-child{position:relative;z-index:2;width:100%;max-width:1280px;margin-inline:auto;padding:90px 64px 100px}
+.medical-welcome .medical-photos{position:absolute;inset:0;z-index:0;min-height:0}
+.medical-welcome::after{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(7,27,39,.94),rgba(7,27,39,.8) 38%,rgba(7,27,39,.28) 72%,rgba(7,27,39,.12))}
+.medical-welcome .medical-photos img{object-position:center 42%}
+.medical-welcome .medical-hero-copy>span{color:#b9e5d8}
+.medical-welcome h1{max-width:660px;min-height:165px;color:#fff;font-size:clamp(44px,5.6vw,76px);text-shadow:0 3px 24px #071b2733}
+.medical-welcome p{max-width:490px;min-height:65px;color:#e0eaf0}
+.medical-welcome .row-gap{flex-wrap:wrap}
+.medical-welcome .row-gap>.btn:not(.btn--primary){background:#ffffff14;border-color:#ffffff80;color:#fff;backdrop-filter:blur(8px)}
+.medical-welcome .row-gap>.btn:not(.btn--primary):hover{background:#ffffff2b}
+.medical-welcome .medical-controls{margin-top:36px;flex-wrap:wrap}
+.medical-welcome .medical-controls button{color:#dbe8ed;min-height:44px}
+.medical-welcome .medical-controls button[aria-pressed=true]{border-color:#b9e5d8;color:#fff}
+.medical-welcome .medical-controls button:focus-visible{outline:2px solid #b9e5d8;outline-offset:4px}
+.medical-welcome .medical-caption{display:none}
+.medical-slide-copy{animation:medical-copy-enter .85s cubic-bezier(.2,.7,.2,1) both}
+@keyframes medical-copy-enter{from{opacity:0;transform:translateX(-24px)}to{opacity:1;transform:none}}
+.lp{overflow-x:clip}
+.lp .polish-reveal{opacity:0;transform:translate(-32px,16px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.lp .polish-reveal:nth-child(even){transform:translate(32px,16px);transition-delay:80ms}
+.lp .polish-reveal:nth-child(3n){transition-delay:160ms}
+.lp .polish-reveal.polish-reveal--shown,.lp .polish-reveal:focus-within{opacity:1;transform:none}
+@media(max-width:700px){.medical-welcome{min-height:650px}.medical-welcome>.medical-hero-copy:first-child{padding:64px 24px}.medical-welcome::after{background:linear-gradient(90deg,#071b27ed,#071b278c)}.medical-welcome h1{font-size:clamp(42px,10vw,60px);min-height:145px;letter-spacing:-1px}.medical-welcome p{font-size:16px;min-height:87px}.medical-welcome .medical-photos img{object-position:58% center}.medical-welcome .medical-controls{gap:8px}}
+@media(prefers-reduced-motion:reduce){.medical-slide-copy{animation:none}.lp .polish-reveal{opacity:1;transform:none;transition:none}}
+
+/* Keep footer content centered within an evenly padded blue band. */
+.hospital-contact .contact-grid {
+  width: 100%;
+  max-width: 1140px;
+  margin-inline: auto;
+  padding: clamp(40px, 5vw, 64px) var(--sp-4);
+  align-items: center;
+}
+.hospital-contact .contact-grid > div {
+  min-width: 0;
+}
+.hospital-contact .contact-grid h3 {
+  margin-top: 0;
+}
+@media (max-width: 900px) {
+  .hospital-contact .contact-grid {
+    align-items: start;
+  }
+}

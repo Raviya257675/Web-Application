@@ -1,0 +1,13 @@
+MERIDIAN HMS — CORS FIX STARTUP
+
+1. Extract START-HYBRID-WINDOWS-CORS-FIX.bat from the ZIP.
+2. Copy it into the Meridian-HMS-SpringBoot folder (the same folder as hospital-management-system.jar and gateway).
+3. Close all existing Spring Boot / Express terminals.
+4. Open the project in VS Code, and in the project root run:
+   .\START-HYBRID-WINDOWS-CORS-FIX.bat
+5. After both servers start, open http://localhost:5000/login
+
+This script only adjusts Spring Boot startup CORS settings. It does not change the backend source code or database.
+If Windows blocks a downloaded .bat file, you may open it first in Notepad to review its commands.
+
+If you cannot extract the .bat file, open the ZIP's TXT copy, copy its entire contents into Notepad, and save it as START-HYBRID-WINDOWS-CORS-FIX.bat (Save as type: All files).

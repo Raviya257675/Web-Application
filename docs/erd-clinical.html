@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <style>
+    body { margin: 0; padding: 24px; background: #ffffff; font-family: "Segoe UI", Arial, sans-serif; }
+    .mermaid { width: 100%; }
+  </style>
+</head>
+<body>
+  <pre class="mermaid">
+erDiagram
+    USER ||--o| PATIENT : "has profile"
+    USER ||--o| DOCTOR : "has profile"
+    DEPARTMENT ||--o{ DOCTOR : "employs"
+    DOCTOR ||--o{ DOCTOR_AVAILABILITY : "publishes"
+    DOCTOR ||--o{ DOCTOR_LEAVE : "requests"
+    PATIENT ||--o{ APPOINTMENT : "books"
+    DOCTOR ||--o{ APPOINTMENT : "attends"
+    APPOINTMENT ||--o| MEDICAL_RECORD : "produces"
+    MEDICAL_RECORD ||--o| PRESCRIPTION : "issues"
+    PRESCRIPTION ||--o{ PRESCRIPTION_ITEM : "contains"
+    PATIENT ||--o{ LAB_ORDER : "takes"
+    DOCTOR ||--o{ LAB_ORDER : "orders"
+    LAB_TEST ||--o{ LAB_ORDER : "ordered as"
+
+    USER {
+        BIGINT id PK
+        VARCHAR name
+        VARCHAR email UK
+        VARCHAR role
+        BOOLEAN active
+    }
+    PATIENT {
+        BIGINT id PK
+        BIGINT user_id FK
+        DATE dob
+        VARCHAR blood_group
+    }
+    DOCTOR {
+        BIGINT id PK
+        BIGINT user_id FK
+        BIGINT department_id FK
+        VARCHAR specialization
+        DECIMAL consultation_fee
+    }
+    DEPARTMENT {
+        BIGINT id PK
+        VARCHAR name UK
+        VARCHAR slug UK
+        DECIMAL consultation_fee
+    }
+    DOCTOR_AVAILABILITY {
+        BIGINT id PK
+        BIGINT doctor_id FK
+        INT day_of_week
+        TIME start_time
+        TIME end_time
+    }
+    DOCTOR_LEAVE {
+        BIGINT id PK
+        BIGINT doctor_id FK
+        DATE start_date
+        DATE end_date
+        VARCHAR status
+    }
+    APPOINTMENT {
+        BIGINT id PK
+        BIGINT patient_id FK
+        BIGINT doctor_id FK
+        DATETIME date_time
+        VARCHAR status
+        INT token_number
+    }
+    MEDICAL_RECORD {
+        BIGINT id PK
+        BIGINT appointment_id FK
+        BIGINT patient_id FK
+        TEXT diagnosis
+    }
+    PRESCRIPTION {
+        BIGINT id PK
+        BIGINT medical_record_id FK
+        BIGINT patient_id FK
+        TEXT advice
+    }
+    PRESCRIPTION_ITEM {
+        BIGINT prescription_id FK
+        VARCHAR medicine_name
+        INT quantity
+    }
+    LAB_TEST {
+        BIGINT id PK
+        VARCHAR code UK
+        VARCHAR name
+        DECIMAL price
+    }
+    LAB_ORDER {
+        BIGINT id PK
+        BIGINT patient_id FK
+        BIGINT doctor_id FK
+        BIGINT test_id FK
+        VARCHAR status
+        VARCHAR result_value
+    }
+  </pre>
+  <script src="./mermaid.min.js"></script>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'base',
+      themeVariables: {
+        fontFamily: '"Segoe UI", Arial, sans-serif',
+        fontSize: '14px',
+        primaryColor: '#eaf2fb',
+        primaryBorderColor: '#0f62b0',
+        primaryTextColor: '#10243a',
+        lineColor: '#64748b'
+      },
+      er: { useMaxWidth: false, layoutDirection: 'TB' }
+    });
+  </script>
+</body>
+</html>

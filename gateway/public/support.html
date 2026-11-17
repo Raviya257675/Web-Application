@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d4373">
+  <meta name="description" content="Meridian HMS Feedback & Support, powered by Express and Node.js">
+  <title>Feedback & Support | Meridian HMS</title>
+  <link rel="stylesheet" href="/gateway/support.css">
+  <script defer src="/gateway/support.js"></script>
+</head>
+<body>
+  <header class="topbar"><a href="/" class="brand"><span class="badge-m">M</span> Meridian <b>HMS</b></a><nav><a href="/dashboard">Hospital dashboard</a><span class="tag">Node.js / Express service</span></nav></header>
+  <main class="container">
+    <p class="eyebrow">COMMUNITY & SERVICE DESK</p>
+    <h1>Feedback &amp; Support</h1>
+    <p class="intro">Share an idea, request help, or raise a service concern. Your request is saved by the Express/Node gateway and visible to you and hospital administrators.</p>
+    <p class="privacy">For privacy, please do not include diagnoses, prescriptions, medical records or other sensitive health details.</p>
+    <div id="notice" class="notice" role="status" aria-live="polite"></div>
+    <div id="signed-out" class="card hidden">
+      <h2>Sign in required</h2>
+      <p>Use your existing Meridian HMS account. No separate Express login is needed.</p>
+      <a class="button" href="/login">Go to sign in</a>
+    </div>
+    <section id="main-panel" class="grid hidden">
+      <div class="card">
+        <div class="panel-head"><div><span class="kicker">SEND A MESSAGE</span><h2>New support request</h2></div><span id="identity-label" class="role"></span></div>
+        <form id="feedback-form">
+          <label for="category">Category</label>
+          <select id="category" required>
+            <option value="GENERAL">General enquiry</option>
+            <option value="APPOINTMENT">Appointments</option>
+            <option value="BILLING">Billing</option>
+            <option value="TECHNICAL">Technical support</option>
+            <option value="SUGGESTION">Suggestion</option>
+          </select>
+          <label for="subject">Subject</label>
+          <input id="subject" maxlength="120" placeholder="A brief subject" required>
+          <label for="message">Message</label>
+          <textarea id="message" rows="6" maxlength="2000" placeholder="Tell us how we can help..." required></textarea>
+          <button class="button" id="submit" type="submit">Send request <span aria-hidden="true">→</span></button>
+        </form>
+      </div>
+      <div class="card">
+        <div class="panel-head"><div><span class="kicker" id="queue-label">YOUR REQUESTS</span><h2 id="queue-title">My request history</h2></div><button class="button outline" id="reload" type="button">Refresh</button></div>
+        <div id="ticket-list" class="ticket-list" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
+  <footer>Meridian HMS · React frontend + Express/Node gateway + Spring Boot hospital service</footer>
+</body>
+</html>
